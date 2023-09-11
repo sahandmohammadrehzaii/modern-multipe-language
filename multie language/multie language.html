@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+    <script src="CodePen%20-%20Multi-Language%20Support%20via%20CSS%20Proof-of-Concept_files/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd3025033.js"></script>
+  <title>CodePen - Multi-Language Support via CSS Proof-of-Concept</title>
+  <link rel="stylesheet" href="allstyleband.css">
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+</head>
+<body translate="no">
+  <div id="rootElement" lang="zh">
+
+    <div>
+        <button onclick="setLang('en-us')">US English (en-us)</button>
+        <button onclick="setLang('es-mx')">Spanish (es-mx)</button>
+        <button onclick="setLang('zh')">Chinese (zh)</button>
+    </div>
+    <hr style="margin-bottom: 20px;">
+    <div>
+        <span class="localized" data-content="Hello. Welcome to our web site."></span>
+    </div>
+    <div>
+        <label for="txtName" class="localized" data-content="Name"></label>: <input id="txtName"><br>
+        <label for="txtPhoneNumber" class="localized" data-content="Phone number"></label>: <input id="txtPhoneNumber">
+    </div>
+</div>
+
+      <script id="rendered-js">
+function setLang(language) {
+  document.getElementById("rootElement").lang = language;
+
+  // Not really needed, see below.
+  setCookie("lang", language, 365);
+}
+
+/*
+  None of this below is really needed. I only added it for ease of use.
+  If I were using this in a production environment, I'd probably
+  inspect the Accept-Language HTTP header sent from the client browser
+  to determine the language to display initially. Then enable the user
+  to change that default selection, and save their choice in a cookie.
+*/
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {if (window.CP.shouldStopExecution(0)) break;
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {if (window.CP.shouldStopExecution(1)) break;
+      c = c.substring(1);
+    }window.CP.exitedLoop(1);
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }window.CP.exitedLoop(0);
+  return "";
+}
+
+document.getElementById("rootElement").lang = getCookie("lang");
+//# sourceURL=pen.js
+    </script>
+</body>
+</html>
