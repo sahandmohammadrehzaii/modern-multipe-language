@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'Shabnam';
+  src: url('https://sahand.storage.iran.liara.space/font/Shabnam.woff');
+  src: url('https://sahand.storage.iran.liara.space/font/Shabnam.woff') format('embedded-opentype'),
+   url('https://sahand.storage.iran.liara.space/font/Shabnam.woff') format('woff2'),
+   url('https://sahand.storage.iran.liara.space/font/Shabnam.woff') format('woff'),
+   url('https://sahand.storage.iran.liara.space/font/Shabnam.woff') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body{
+font-family:"Shabnam";
+}
+/* برای دستگاه‌های با عرض کمتر از 768 پیکسل */
+@media (max-width: 767px) {
+/* کد CSS مربوط به صفحه HTML در این بخش */
+}
+
+/* برای دستگاه‌های با عرض بین 768 و 992 پیکسل */
+@media (min-width: 768px) and (max-width: 991px) {
+/* کد CSS مربوط به صفحه HTML در این بخش */
+}
+
+/* برای دستگاه‌های با عرض بین 992 و 1200 پیکسل */
+@media (min-width: 992px) and (max-width: 1199px) {
+/* کد CSS مربوط به صفحه HTML در این بخش */
+}
+
+/* برای دستگاه‌های با عرض بیشتر از 1200 پیکسل */
+@media (min-width: 1200px) {
+/* کد CSS مربوط به صفحه HTML در این بخش */
+}
+/* Show the default language for all localized elements */
+
+.localized:after {
+content: attr(data-content);
+}
+
+
+/* __Translations__
+The idea here is that each langugage could be contained in its own file.
+*/
+
+/* es-mx.css ____________________________________*/
+[lang="es-mx"] [data-content="سیسیسیشسی"]:after {
+content: "Hola. Bienvenido a nuestro sitio de web.";
+}
+[lang="es-mx"] [data-content="Name"]:after {
+content: "Nombre";
+}
+[lang="es-mx"] [data-content="Phone number"]:after {
+content: "Número de teléfono";
+}
+
+/* zh.css _______________________________________*/
+[lang="zh"] [data-content="طططسسیسی"]:after {
+content: "你好。欢迎光临我们的网站。";
+}
+[lang="zh"] [data-content="Name"]:after {
+content: "名称";
+}
+[lang="zh"] [data-content="Phone number"]:after {
+content: "电话号码";
+}
